@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Subhash Saladi Initiative | Medical & Mental Health Advocacy</title>
+  <meta name="description" content="A nonprofit initiative advancing medical and mental health advocacy, patient support, and community outreach in Dallas, Texas." />
+
+  <style>
+    :root{
+      --bg: #070A12;
+      --bg2:#0B1222;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.55);
+      --accent: #5EEAD4;
+      --accent2:#60A5FA;
+      --accent3:#A78BFA;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(94,234,212,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(96,165,250,.18), transparent 52%),
+        radial-gradient(1000px 800px at 50% 110%, rgba(167,139,250,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .glass{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(to bottom, rgba(7,10,18,.88), rgba(7,10,18,.55));
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width: 240px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background:
+        radial-gradient(16px 16px at 30% 30%, rgba(94,234,212,.95), transparent 55%),
+        radial-gradient(18px 18px at 70% 70%, rgba(96,165,250,.9), transparent 55%),
+        linear-gradient(135deg, rgba(94,234,212,.25), rgba(96,165,250,.22), rgba(167,139,250,.18));
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .brand strong{display:block; font-size:14px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    nav{
+      display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition: .2s ease;
+      font-weight:600;
+      font-size:13px;
+    }
+    nav a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+      transform: translateY(-1px);
+    }
+    .nav-cta{
+      text-decoration:none;
+      font-weight:800;
+      color:#071018;
+      padding:10px 14px;
+      border-radius:14px;
+      border:0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 18px 40px rgba(94,234,212,.12);
+      transition: .2s ease;
+      margin-left:6px;
+    }
+    .nav-cta:hover{transform: translateY(-1px); filter:saturate(1.05)}
+    .burger{display:none}
+    @media (max-width: 920px){
+      nav{display:none}
+      .burger{
+        display:inline-flex; align-items:center; justify-content:center;
+        width:44px; height:44px; border-radius:14px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.10);
+        color: var(--text);
+        cursor:pointer;
+      }
+      .brand{min-width:auto}
+    }
+
+    .mobile{display:none; padding: 0 0 16px 0;}
+    .mobile .panel{border-radius: 16px; padding: 10px;}
+    .mobile a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 12px;
+      text-decoration:none;
+      color: var(--muted);
+      font-weight:700;
+      border:1px solid transparent;
+    }
+    .mobile a:hover{background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.10); color:var(--text)}
+    .mobile .ctaRow{display:flex; gap:10px; padding: 10px 12px 4px}
+    .mobile .ctaRow a{
+      flex:1;
+      text-align:center;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--text);
+    }
+    .mobile .ctaRow a.primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border:0;
+      color:#071018;
+    }
+
+    section{padding: 54px 0}
+    .divider{
+      height:1px; width:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+    }
+
+    .reveal{
+      opacity:0;
+      transform: translateY(22px);
+      filter: blur(6px);
+      transition: opacity .8s ease, transform .8s ease, filter .8s ease;
+      will-change: opacity, transform, filter;
+    }
+    .reveal.show{
+      opacity:1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .hero{padding: 54px 0 34px; position: relative;}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){ .heroGrid{grid-template-columns:1fr} }
+
+    .heroCard{
+      border-radius: var(--radius2);
+      padding: 28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(800px 260px at 20% 0%, rgba(94,234,212,.16), transparent 60%),
+        radial-gradient(700px 220px at 90% 20%, rgba(96,165,250,.14), transparent 60%),
+        radial-gradient(900px 260px at 50% 110%, rgba(167,139,250,.12), transparent 60%);
+      pointer-events:none;
+    }
+    .heroKicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding: 8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+      position:relative;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: 44px;
+      line-height:1.05;
+      letter-spacing: -0.7px;
+      position:relative;
+    }
+    @media (max-width: 520px){ h1{font-size: 36px} }
+    .heroSub{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 64ch;
+      position:relative;
+      margin:0;
+      line-height: 1.7;
+    }
+    .heroActions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 18px;
+      position:relative;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      text-decoration:none;
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(94,234,212,.22); box-shadow: 0 0 0 8px rgba(94,234,212,.10)}
+    .btn.primary{
+      border:0;
+      color:#071018;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 18px 40px rgba(96,165,250,.10);
+    }
+    .btn.primary:hover{box-shadow: 0 20px 50px rgba(94,234,212,.14)}
+    .mini{
+      margin-top: 16px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      position:relative;
+    }
+    .pill{
+      padding: 9px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(7,10,18,.35);
+      color: var(--muted);
+      font-weight:800;
+      font-size: 12px;
+    }
+
+    .photoCard{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      position:relative;
+      min-height: 340px;
+    }
+    .photoCard img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .photoShade{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(7,10,18,.12), rgba(7,10,18,.88)),
+        radial-gradient(600px 260px at 20% 0%, rgba(94,234,212,.16), transparent 65%);
+    }
+    .photoOverlay{
+      position:absolute; left:18px; right:18px; bottom:16px;
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .impactRow{
+      display:grid; grid-template-columns: repeat(3,1fr);
+      gap:10px;
+    }
+    @media (max-width: 520px){ .impactRow{grid-template-columns:1fr} }
+    .impact{
+      border-radius: 16px;
+      padding: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    .impact .num{font-size:20px; font-weight:900}
+    .impact .lab{color:var(--muted); font-weight:700; font-size:12px; margin-top:2px}
+
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    @media (max-width: 860px){ .grid2{grid-template-columns:1fr} }
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr} }
+
+    .card{border-radius: var(--radius); padding: 18px;}
+    .card h2{margin:0 0 10px; font-size:22px; letter-spacing:-.3px}
+    .card p{margin:0; color:var(--muted); line-height:1.7}
+    .card h3{margin: 0 0 8px; font-size:16px}
+    .muted{color:var(--muted)}
+    .list{
+      margin: 12px 0 0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .li{
+      display:flex; gap:10px;
+      padding: 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .dot{
+      width:12px; height:12px; border-radius: 4px;
+      margin-top: 3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(94,234,212,.10);
+      flex: 0 0 auto;
+    }
+
+    .program{
+      border-radius: var(--radius);
+      overflow:hidden;
+      position:relative;
+      padding: 0;
+    }
+    .programTop{
+      padding: 16px 16px 12px;
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+    }
+    .chip{
+      font-size:12px;
+      font-weight:900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .programBody{
+      padding: 0 16px 16px;
+      color: var(--muted);
+      line-height:1.7;
+    }
+    .programBar{
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      opacity:.85;
+    }
+
+    .resource{
+      display:flex; flex-direction:column; gap:10px;
+      padding: 16px;
+      border-radius: var(--radius);
+      text-decoration:none;
+      transition:.2s ease;
+    }
+    .resource:hover{
+      transform: translateY(-2px);
+      border-color: rgba(94,234,212,.22);
+      box-shadow: 0 0 0 8px rgba(94,234,212,.10), var(--shadow);
+    }
+    .resource strong{font-size:15px}
+    .resource span{color:var(--muted); font-size:13px; line-height:1.6}
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:900;
+      color: var(--text);
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{display:none}
+    .checklist{
+      margin-top:10px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .checklist ul{margin:8px 0 0; padding-left: 18px}
+    .checklist li{margin:6px 0}
+
+    footer{
+      padding: 30px 0 44px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .footGrid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 860px){ .footGrid{grid-template-columns:1fr} }
+    .footLinks{display:flex; gap:10px; flex-wrap:wrap}
+    .footLinks a{color: var(--muted); text-decoration:none; font-weight:800}
+    .footLinks a:hover{color: var(--text)}
+    .tiny{font-size:12px; color: rgba(255,255,255,.45); margin-top:10px}
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none; opacity:1; transform:none; filter:none}
+      .btn,.resource,nav a{transition:none}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✚</div>
+        <div>
+          <strong>Subhash Saladi Initiative</strong>
+          <span>Medical and mental health advocacy in Dallas, Texas</span>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a href="#impact">Impact</a>
+        <a href="#resources">Resources</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#donate">Support</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Open menu">☰</button>
+    </div>
+
+    <div class="mobile" id="mobile">
+      <div class="panel glass">
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a href="#impact">Impact</a>
+        <a href="#resources">Resources</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Contact</a>
+        <div class="ctaRow">
+          <a href="#volunteer">Volunteer</a>
+          <a class="primary" href="#donate">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap heroGrid">
+      <div class="heroCard glass reveal">
+        <div class="heroKicker">🩺 Community advocacy and outreach</div>
+        <h1>
+          Fighting for medical and mental health advocacy,
+          <span style="background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;">
+            with real community partnerships
+          </span>
+        </h1>
+        <p class="heroSub">
+          The Subhash Saladi Initiative is a student led advocacy group focused on access to care, mental health support, and patient empowerment.
+          We partner with local organizations, schools, clinics, and community groups to expand outreach, connect people to resources, and support families navigating care.
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="#programs">Explore programs</a>
+          <a class="btn" href="#volunteer">Volunteer</a>
+          <a class="btn" href="#resources">Use resources</a>
+        </div>
+
+        <div class="mini" aria-label="Focus areas">
+          <span class="pill">Mental health advocacy</span>
+          <span class="pill">Medical access</span>
+          <span class="pill">Community outreach</span>
+          <span class="pill">Patient support</span>
+        </div>
+      </div>
+
+      <!-- Keep image if you want; remove the text you disliked -->
+      <div class="photoCard glass reveal" aria-label="Community healthcare photo">
+        <img
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80"
+          alt="Clinician speaking with a patient"
+          loading="lazy"
+        />
+        <div class="photoShade" aria-hidden="true"></div>
+        <div class="photoOverlay">
+          <div class="impactRow">
+            <div class="impact">
+              <div class="num" data-count="250">0</div>
+              <div class="lab">People reached</div>
+            </div>
+            <div class="impact">
+              <div class="num" data-count="18">0</div>
+              <div class="lab">Workshops held</div>
+            </div>
+            <div class="impact">
+              <div class="num" data-count="35">0</div>
+              <div class="lab">Partner connections</div>
+            </div>
+          </div>
+          <!-- Removed: Example metrics line -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="wrap grid2">
+      <div class="card glass reveal">
+        <h2>Our mission</h2>
+        <p>
+          We fight for medical and mental health advocacy by meeting people where they are.
+          Our work focuses on outreach, education, and direct navigation support so families can access care, understand options, and feel supported.
+        </p>
+        <ul class="list">
+          <li class="li"><span class="dot"></span><div><strong>Mental health support and stigma reduction</strong><div class="muted">Workshops, peer support connections, and crisis resource education.</div></div></li>
+          <li class="li"><span class="dot"></span><div><strong>Access to care navigation</strong><div class="muted">Help finding clinics, financial assistance pathways, and appointment preparation.</div></div></li>
+          <li class="li"><span class="dot"></span><div><strong>Community partnerships</strong><div class="muted">We collaborate with other organizations to expand outreach and connect people to services faster.</div></div></li>
+        </ul>
+      </div>
+
+      <div class="card glass reveal">
+        <h2>What we do</h2>
+        <p>
+          We run programs that turn advocacy into action: community workshops, resource navigation, and partnerships that connect people to care and support.
+        </p>
+        <div style="margin-top:14px" class="grid3">
+          <div class="glass card" style="padding:16px">
+            <h3>Outreach and workshops</h3>
+            <p class="muted">Mental health education, access to care basics, and how to get help in Dallas and surrounding areas.</p>
+          </div>
+          <div class="glass card" style="padding:16px">
+            <h3>Resource navigation</h3>
+            <p class="muted">We help people find clinics, assistance programs, and next steps, plus how to prepare for visits.</p>
+          </div>
+          <div class="glass card" style="padding:16px">
+            <h3>Partner driven support</h3>
+            <p class="muted">We work with other groups to distribute resources, host events, and amplify trusted services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="wrap">
+      <div class="card glass reveal">
+        <h2>Programs</h2>
+        <p>
+          Our programs are built with community partners and designed to be consistent, practical, and measurable.
+          We focus on repeatable events and resource pathways that people can actually use.
+        </p>
+      </div>
+
+      <div class="grid3" style="margin-top:14px">
+        <div class="program glass reveal">
+          <div class="programBar"></div>
+          <div class="programTop">
+            <div>
+              <h3>Mental Health Advocacy Workshops</h3>
+              <p class="muted" style="margin:0">School and community sessions on stress, stigma, and getting help.</p>
+            </div>
+            <span class="chip">Education</span>
+          </div>
+          <div class="programBody">
+            We deliver short workshops with practical takeaways: how to seek support, how to help a friend, and where to find local services.
+          </div>
+        </div>
+
+        <div class="program glass reveal">
+          <div class="programBar"></div>
+          <div class="programTop">
+            <div>
+              <h3>Care Navigation and Appointment Prep</h3>
+              <p class="muted" style="margin:0">Helping families prepare for visits and understand next steps.</p>
+            </div>
+            <span class="chip">Direct support</span>
+          </div>
+          <div class="programBody">
+            We provide appointment prep checklists, question prompts, and guidance on locating clinics and financial assistance programs.
+          </div>
+        </div>
+
+        <div class="program glass reveal">
+          <div class="programBar"></div>
+          <div class="programTop">
+            <div>
+              <h3>Partner Outreach Events</h3>
+              <p class="muted" style="margin:0">Co hosted resource drives and info tables with local organizations.</p>
+            </div>
+            <span class="chip">Partnerships</span>
+          </div>
+          <div class="programBody">
+            We partner with other groups to expand reach, distribute trusted resources, and connect people to services in the moment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="wrap grid2">
+      <div class="card glass reveal">
+        <h2>Impact</h2>
+        <p>
+          We care about outcomes that matter: people getting connected to help, understanding how to access care, and leaving with a clear next step.
+        </p>
+        <ul class="list">
+          <li class="li"><span class="dot"></span><div><strong>Connections to services</strong><div class="muted">Clinic referrals, resource handoffs, and follow up guidance.</div></div></li>
+          <li class="li"><span class="dot"></span><div><strong>Education that sticks</strong><div class="muted">Workshops built around actionable steps, not just awareness.</div></div></li>
+          <li class="li"><span class="dot"></span><div><strong>Partner amplification</strong><div class="muted">Working with organizations that already serve the community, then helping them reach more people.</div></div></li>
+        </ul>
+      </div>
+
+      <div class="card glass reveal" style="overflow:hidden; padding:0">
+        <div style="padding:18px">
+          <h2>A real moment</h2>
+          <p class="muted">
+            At a community table event, a parent told us they were overwhelmed by where to start.
+            We walked through a simple plan: write down symptoms and medications, call a nearby clinic, ask for financial assistance screening, and bring a question list to the visit.
+            They left with a printed checklist, local clinic options, and a clear next step for the same week.
+          </p>
+        </div>
+
+        <div style="position:relative; height:260px;">
+          <img
+            src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1600&q=80"
+            alt="Healthcare team in a clinical setting"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            loading="lazy"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,10,18,.10), rgba(7,10,18,.88));"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="wrap">
+      <div class="card glass reveal">
+        <h2>Resources you can use today</h2>
+        <p>
+          These are the exact tools we hand out at outreach events: appointment prep steps, patient rights basics, and a Dallas area clinic directory with trusted starting points.
+        </p>
+      </div>
+
+      <div class="grid3" style="margin-top:14px">
+        <div class="glass card reveal">
+          <h3 style="margin:0 0 8px">Appointment Prep Checklist</h3>
+          <p class="muted">A quick checklist to bring to your next medical visit.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#appt-checklist">Open</a>
+            <button class="btn" onclick="downloadText('appointment-prep-checklist.txt', getChecklistText())">Download</button>
+          </div>
+        </div>
+
+        <div class="glass card reveal">
+          <h3 style="margin:0 0 8px">Patient Rights Quick Guide</h3>
+          <p class="muted">Practical rights everyone should know, plus official sources.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#rights-guide">Open</a>
+            <button class="btn" onclick="downloadText('patient-rights-quick-guide.txt', getRightsText())">Download</button>
+          </div>
+        </div>
+
+        <div class="glass card reveal">
+          <h3 style="margin:0 0 8px">Community Clinics Directory</h3>
+          <p class="muted">Lewisville to Dallas Fort Worth area starting points for low cost care and support.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="#clinic-directory">Open</a>
+            <button class="btn" onclick="downloadText('dfw-community-clinic-directory.txt', getDirectoryText())">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="grid2">
+        <div class="glass card reveal" id="appt-checklist">
+          <h3>Appointment Prep Checklist</h3>
+          <details open>
+            <summary>Before the visit</summary>
+            <div class="checklist">
+              <ul>
+                <li>Write down your main concern in one sentence.</li>
+                <li>List symptoms with start date, frequency, and what makes them better or worse.</li>
+                <li>Bring a list of medications and supplements with doses.</li>
+                <li>Bring allergies and past medical history, surgeries, and hospitalizations.</li>
+                <li>If you have records, bring discharge papers, test results, and imaging reports.</li>
+                <li>Confirm location, parking, time, and what documents you need.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Questions to ask</summary>
+            <div class="checklist">
+              <ul>
+                <li>What do you think is most likely causing this?</li>
+                <li>What are other possibilities?</li>
+                <li>What tests do I need, and what will they tell us?</li>
+                <li>What should I do next if symptoms worsen?</li>
+                <li>What are the treatment options and side effects?</li>
+                <li>When should I follow up?</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>During the visit</summary>
+            <div class="checklist">
+              <ul>
+                <li>Ask for plain language explanations if anything is confusing.</li>
+                <li>Ask for written instructions or a visit summary.</li>
+                <li>Confirm the next step before leaving: referral, test, medication, or follow up.</li>
+              </ul>
+            </div>
+          </details>
+          <p class="tiny">This checklist is educational and not medical advice. For emergencies call 911.</p>
+        </div>
+
+        <div class="glass card reveal" id="rights-guide">
+          <h3>Patient Rights Quick Guide</h3>
+          <div class="checklist">
+            <ul>
+              <li><strong>Right to information:</strong> You can ask who is responsible for your care and request explanations you understand.</li>
+              <li><strong>Right to respectful care:</strong> You deserve considerate, non discriminatory treatment.</li>
+              <li><strong>Right to access records:</strong> Under HIPAA you generally have the right to access your medical records and billing records.</li>
+              <li><strong>Right to ask questions:</strong> You can request risks, benefits, and alternatives in plain language.</li>
+              <li><strong>Right to interpretation:</strong> If language is a barrier, request interpreting services.</li>
+              <li><strong>Right to complain:</strong> If you believe privacy rights were violated, you can file a complaint with HHS OCR.</li>
+            </ul>
+          </div>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn" target="_blank" rel="noreferrer" href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html">HIPAA access to records</a>
+            <a class="btn" target="_blank" rel="noreferrer" href="https://www.texasattorneygeneral.gov/consumer-protection/health-care/patient-privacy">Texas AG patient privacy</a>
+            <a class="btn" target="_blank" rel="noreferrer" href="https://www.hhs.gov/hipaa/index.html">File a HIPAA complaint</a>
+          </div>
+          <p class="tiny">If you are in immediate danger or a mental health crisis, call 988 in the US.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="glass card reveal" id="clinic-directory">
+        <h3>Lewisville to Dallas Fort Worth Community Clinic Directory</h3>
+        <p class="muted">
+          These are reliable starting points for finding low cost care, financial assistance, or a nearby health center.
+          Availability changes, so always call first.
+        </p>
+
+        <div class="checklist">
+          <ul>
+            <li><strong>HRSA Find a Health Center:</strong> national locator for community health centers (sliding scale). 
+              <a target="_blank" rel="noreferrer" href="https://findahealthcenter.hrsa.gov/">Open locator</a>
+            </li>
+            <li><strong>Parkland Financial Assistance:</strong> financial assistance for eligible Dallas County residents. 
+              <a target="_blank" rel="noreferrer" href="https://www.parklandhealth.org/parkland-financial-assistance">Learn more</a>
+            </li>
+            <li><strong>Parkland application portal:</strong> apply for Parkland assistance and charity discount. 
+              <a target="_blank" rel="noreferrer" href="https://ola.veritysource.com/parkland?sc=appl2">Apply here</a>
+            </li>
+            <li><strong>Texas 211:</strong> find local clinics, mental health support, food, housing, and transportation resources. 
+              <a target="_blank" rel="noreferrer" href="https://www.211texas.org/">Open 211 Texas</a>
+            </li>
+            <li><strong>988 Suicide and Crisis Lifeline:</strong> immediate mental health crisis support. 
+              <a target="_blank" rel="noreferrer" href="https://988lifeline.org/">988 website</a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="tiny">We do not provide medical care. We provide navigation and resource connections.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="wrap grid2">
+      <div class="card glass reveal">
+        <h2>Partners</h2>
+        <p>
+          We collaborate with nonprofits, student groups, clinics, schools, and community leaders to expand outreach and connect people to trusted resources.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px">
+          <span class="pill">Community nonprofits</span>
+          <span class="pill">School organizations</span>
+          <span class="pill">Clinic referral pathways</span>
+          <span class="pill">Mental health support groups</span>
+        </div>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn primary" href="mailto:subhashsaladi84@gmail.com?subject=Partner%20Inquiry%20-%20Subhash%20Saladi%20Initiative&body=Hi%20Subhash%2C%0A%0AOur%20organization%20is%20interested%20in%20partnering%20with%20the%20Subhash%20Saladi%20Initiative.%0A%0AOrganization%20name%3A%0ALocation%3A%0AWhat%20we%20do%3A%0AWhat%20kind%20of%20partnership%20we%20are%20thinking%3A%0ABest%20contact%20person%20and%20phone%3A%0A%0AThanks%2C">Partner inquiry</a>
+          <a class="btn" href="#contact">Contact us</a>
+        </div>
+      </div>
+
+      <div class="card glass reveal" id="volunteer">
+        <h2>Volunteer</h2>
+        <p>
+          Volunteers help with outreach events, workshop support, and resource navigation.
+          If you want to help fight for medical and mental health advocacy locally, join us.
+        </p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn primary" href="mailto:subhashsaladi84@gmail.com?subject=Volunteer%20Interest%20-%20Subhash%20Saladi%20Initiative&body=Hi%20Subhash%2C%0A%0AI%20am%20interested%20in%20volunteering.%0A%0AName%3A%0ASchool%2Forg%3A%0AAvailability%3A%0AInterests%20(outreach%2C%20workshops%2C%20navigation%2C%20fundraising)%3A%0A%0AThanks%2C">Volunteer by email</a>
+          <!-- Optional: replace with your real Google Form when you make it -->
+          <a class="btn" href="#" onclick="alert('If you create a Google Form for volunteers, paste the link here in index.html.'); return false;">Volunteer form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DONATE / SUPPORT -->
+  <section id="donate">
+    <div class="wrap">
+      <div class="card glass reveal" style="border-radius: 26px; padding: 22px; overflow:hidden; position:relative">
+        <div style="position:absolute; inset:-2px; background:
+          radial-gradient(900px 260px at 20% 0%, rgba(94,234,212,.14), transparent 60%),
+          radial-gradient(900px 260px at 90% 30%, rgba(96,165,250,.12), transparent 60%);
+          pointer-events:none;"></div>
+
+        <div style="position:relative; display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; align-items:center">
+          <div>
+            <h2 style="margin:0 0 10px">Support the work</h2>
+            <p class="muted" style="margin:0">
+              Donations help us run workshops, print resource packets, and host community outreach events.
+              To add a real donation link, create a Givebutter or Stripe donation page, then paste the URL into the button below.
+            </p>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <!-- Replace the href below with your real donation URL once you create it -->
+              <a class="btn primary" href="#" onclick="alert('Paste your real donation page URL here (Givebutter, Stripe, PayPal, etc.).'); return false;">Donate</a>
+              <a class="btn" href="mailto:subhashsaladi84@gmail.com?subject=Donation%20or%20Sponsorship%20Interest&body=Hi%20Subhash%2C%0A%0AI%20would%20like%20to%20support%20the%20Subhash%20Saladi%20Initiative.%0A%0AName%3A%0AOrganization%20(optional)%3A%0AAmount%20or%20type%20of%20support%3A%0ABest%20contact%3A%0A%0AThanks%2C">Sponsor or donate by email</a>
+            </div>
+          </div>
+
+          <div class="glass" style="position:relative; border-radius: 22px; padding: 16px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06)">
+            <strong>What donations support</strong>
+            <ul style="margin:10px 0 0; padding-left: 18px; color: var(--muted); line-height:1.7">
+              <li>Workshop materials and community outreach</li>
+              <li>Printed appointment prep and rights guides</li>
+              <li>Resource directories for families</li>
+              <li>Partner events and awareness campaigns</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap grid2">
+      <div class="card glass reveal">
+        <h2>Contact</h2>
+        <p>Reach out for volunteer interest, partnerships, or outreach requests.</p>
+
+        <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px">
+          <a class="btn primary" href="mailto:subhashsaladi84@gmail.com">Email us</a>
+          <a class="btn" href="mailto:subhashsaladi84@gmail.com?subject=Partner%20Inquiry%20-%20Subhash%20Saladi%20Initiative">Partner inquiry</a>
+          <a class="btn" href="mailto:subhashsaladi84@gmail.com?subject=Workshop%20Request%20-%20Subhash%20Saladi%20Initiative&body=Hi%20Subhash%2C%0A%0AWe%20would%20like%20to%20request%20a%20workshop.%0A%0AOrganization%2Fschool%3A%0ACity%3A%0APreferred%20date%20and%20time%3A%0AAudience%20(size%20and%20age)%3A%0ATopic%20requested%3A%0A%0AThanks%2C">Request a workshop</a>
+        </div>
+
+        <div class="muted" style="margin-top:12px; font-size:13px">
+          For emergencies call 911. For mental health crisis support, call or text 988.
+        </div>
+      </div>
+
+      <div class="card glass reveal">
+        <h2>Quick info</h2>
+        <p class="muted">Based in Dallas, Texas, serving Lewisville to the Dallas Fort Worth area.</p>
+
+        <div style="margin-top:14px" class="grid3">
+          <div class="glass card" style="padding:16px">
+            <h3>Location</h3>
+            <p class="muted">Dallas, TX</p>
+          </div>
+          <div class="glass card" style="padding:16px">
+            <h3>Focus</h3>
+            <p class="muted">Medical and mental health advocacy</p>
+          </div>
+          <div class="glass card" style="padding:16px">
+            <h3>Contact</h3>
+            <p class="muted">subhashsaladi84@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footGrid">
+    <div class="reveal">
+      <div style="display:flex; align-items:center; gap:10px">
+        <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:12px">✚</div>
+        <div>
+          <strong>Subhash Saladi Initiative</strong>
+          <div class="tiny">Medical and mental health advocacy in Dallas, Texas.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="footLinks">
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="tiny" style="margin-top:10px">
+        © <span id="year"></span> Subhash Saladi Initiative
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.style.scrollBehavior = "smooth";
+
+  const burger = document.getElementById("burger");
+  const mobile = document.getElementById("mobile");
+  let open = false;
+  burger?.addEventListener("click", () => {
+    open = !open;
+    mobile.style.display = open ? "block" : "none";
+    burger.textContent = open ? "✕" : "☰";
+  });
+  mobile?.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      open = false; mobile.style.display="none"; burger.textContent="☰";
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add("show");
+    });
+  }, { threshold: 0.16 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  function animateCount(el){
+    const target = Number(el.dataset.count || 0);
+    const start = 0;
+    const dur = 1200;
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min((t - t0)/dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(start + (target - start) * eased);
+      el.textContent = val.toLocaleString();
+      if(p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && !e.target.dataset.ran){
+        e.target.dataset.ran = "1";
+        animateCount(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll("[data-count]").forEach(el => countIO.observe(el));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function downloadText(filename, text){
+    const blob = new Blob([text], {type:"text/plain;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  window.downloadText = downloadText;
+
+  function getChecklistText(){
+    return `APPOINTMENT PREP CHECKLIST
+
+BEFORE THE VISIT
+- Write your main concern in one sentence.
+- List symptoms: start date, frequency, what makes it better or worse.
+- Bring medication and supplement list with doses.
+- Bring allergies, past medical history, surgeries, hospitalizations.
+- Bring records if you have them: discharge papers, test results, imaging reports.
+- Confirm location, parking, time, what documents you need.
+
+QUESTIONS TO ASK
+- What do you think is most likely causing this?
+- What are other possibilities?
+- What tests do I need, and what will they tell us?
+- What should I do next if symptoms worsen?
+- What are treatment options and side effects?
+- When should I follow up?
+
+DURING THE VISIT
+- Ask for plain language explanations.
+- Ask for written instructions or a visit summary.
+- Confirm the next step before leaving: referral, test, medication, or follow up.
+
+Emergency: call 911. Crisis: call or text 988.`;
+  }
+  window.getChecklistText = getChecklistText;
+
+  function getRightsText(){
+    return `PATIENT RIGHTS QUICK GUIDE (GENERAL)
+
+- Right to information: ask who is responsible for your care and request explanations you understand.
+- Right to respectful care: you deserve considerate, non discriminatory care.
+- Right to access records: under HIPAA you generally have the right to access medical and billing records.
+- Right to ask questions: request risks, benefits, alternatives in plain language.
+- Right to interpretation: request interpreting services if language is a barrier.
+- Right to complain: file a complaint with HHS OCR if you believe HIPAA privacy rights were violated.
+
+Helpful official sources:
+- HIPAA access guidance: https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html
+- Texas AG patient privacy: https://www.texasattorneygeneral.gov/consumer-protection/health-care/patient-privacy
+- HIPAA complaint info: https://www.hhs.gov/hipaa/index.html
+
+Emergency: call 911. Crisis: call or text 988.`;
+  }
+  window.getRightsText = getRightsText;
+
+  function getDirectoryText(){
+    return `DFW COMMUNITY CLINIC DIRECTORY (STARTING POINTS)
+Lewisville to Dallas Fort Worth area
+
+1) HRSA Find a Health Center (sliding scale community health centers)
+https://findahealthcenter.hrsa.gov/
+
+2) Parkland Financial Assistance (Dallas County)
+https://www.parklandhealth.org/parkland-financial-assistance
+
+3) Parkland application portal
+https://ola.veritysource.com/parkland?sc=appl2
+
+4) 211 Texas (clinics, mental health, housing, food, transportation resources)
+https://www.211texas.org/
+
+5) 988 Crisis Lifeline (mental health crisis support)
+https://988lifeline.org/
+
+Availability changes. Always call first. This directory is informational and not medical advice.`;
+  }
+  window.getDirectoryText = getDirectoryText;
+</script>
+
+</body>
+</html>
